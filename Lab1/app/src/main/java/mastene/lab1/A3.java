@@ -25,7 +25,10 @@ public class A3 extends AppCompatActivity {
             }
         });
     }
-
+    
+    /**
+    * Takes the user back to A2, and sends the return intent
+    **/
     private void backToA3(){
         TextView t4Text = findViewById(R.id.t4);
         String tempText = t4Text.getText().toString();

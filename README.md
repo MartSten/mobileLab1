@@ -1,7 +1,7 @@
 # mobileLab1
 Lab 1 for mobile dev at NTNU
 
-Project description:
+# Project description:
 Lab 01
 
 Create an application consisting of 3 activities. 

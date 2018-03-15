@@ -1,6 +1,8 @@
 # mobileLab1
 Lab 1 for mobile dev at NTNU
 
+The app was made to practice preferences and activities.
+
 # Project description:
 Lab 01
 

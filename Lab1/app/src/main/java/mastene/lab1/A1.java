@@ -17,15 +17,15 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 public class A1 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    //Implements AdapterView.OnItemSelectedListener so that I may use OnItemSelectedListener on the color spinner
 
-    Spinner spinner1;
+    Spinner spinner1;   //Holds the oprions that the user can change between
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a1);
 
-        //Based on https://stackoverflow.com/questions/13377361/how-to-create-a-drop-down-list
         spinner1 = findViewById(R.id.s1);
         String[] items = new String[]{"Red", "Blue", "Black"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, items);
@@ -35,7 +35,6 @@ public class A1 extends AppCompatActivity implements AdapterView.OnItemSelectedL
 
         spinner1.setOnItemSelectedListener(this);   //Sets listener
 
-        //Based on https://developer.android.com/reference/android/widget/Button.html
         Button b1 = findViewById(R.id.button);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +44,9 @@ public class A1 extends AppCompatActivity implements AdapterView.OnItemSelectedL
         });
     }
 
-    //Based on https://bitbucket.org/gtl-hig/imt3662-mobile-labs/src/bbe7790247a6bf052187312d6c316e1e766228a9/Preferences_Example/app/src/main/java/com/hig/preferences_example/MainActivity.java?at=master&fileviewer=file-view-default
+    /**
+    * The function changes the view to A2
+    **/
     private void changeToA2(){
         TextView t1View = findViewById(R.id.t1);
         String tempText = t1View.getText().toString();
@@ -56,7 +57,7 @@ public class A1 extends AppCompatActivity implements AdapterView.OnItemSelectedL
     }
 
     /**
-     * The function gets the previously selected item.
+     * The function gets the previously selected spinner item from the preferences.
      * @return int - the previously selected item.
      */
     private int loadSpinner(){
@@ -64,12 +65,11 @@ public class A1 extends AppCompatActivity implements AdapterView.OnItemSelectedL
         return pref.getInt("A1Color", 0);
     }
 
-    //Source: Lars
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putInt("A1Color", i);    //Key, Default value if key is not found.
+        editor.putInt("A1Color", i);
         editor.apply();
     }
 
